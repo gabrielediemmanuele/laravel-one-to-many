@@ -137,6 +137,7 @@ class ProjectController extends Controller
                 'author' => 'required|string|max:50',
                 'title' => 'required|string|max:50',
                 'slug' => 'required|string',
+                'type_id' => 'required',
                 'link' => 'required|string',
                 'date' => 'required|string|max:50',
                 'description' => 'required',
@@ -152,6 +153,8 @@ class ProjectController extends Controller
 
                 'slug.required' => 'The slug is binding!',
                 'slug.string' => 'slug need to be a string!',
+
+                'type_id.required' => 'Type is not valid, select a type!',
 
                 'link.required' => 'The link is binding!',
                 'link.string' => 'link need to be a string!',
