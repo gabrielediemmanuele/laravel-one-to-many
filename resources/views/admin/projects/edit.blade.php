@@ -79,9 +79,9 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
             {{--* PROVA INSERIMENTO DEL TIPO --}}
            <label for="type_id" class="form-label">Type</label>
            <select name="type_id" id="type_id" class="form-select @error('type_id') is-invalid @enderror">
-             <option value="{{ old('type_id') ?? $project->type->label }}">-- No type --</option>
+             <option value="">-- No type --</option>
              @foreach ($types as $type)
-               <option value="{{ $type->id }}" @if (old('type_id') == $type->id) selected @endif>{{ $type->label }}
+               <option value="{{ $type->id }}" @if (old('type_id') ?? $project->type_id == $type_id) selected @endif>{{ $type->label }}
                </option>
              @endforeach
            </select>
