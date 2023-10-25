@@ -17,4 +17,12 @@ class Project extends Model
         'link',
         'description'
     ];
+
+    /* 
+    ! connection to category model  
+    */
+    public function type()
+    {
+        return $this->belongsTo(Type::class);
+    }
 }
