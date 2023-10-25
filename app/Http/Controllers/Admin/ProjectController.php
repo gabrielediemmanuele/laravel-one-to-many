@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
 use App\Models\Project;
+use App\Models\Type;
 
 class ProjectController extends Controller
 {
@@ -32,7 +33,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('admin.projects.create');
+        $types = Type::all();
+        return view('admin.projects.create', compact('types'));
     }
 
     /**
@@ -85,7 +87,8 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('admin.projects.edit', compact('project'));
+        $types = Type::all();
+        return view('admin.projects.edit', compact('project', 'types'));
     }
 
     /**
@@ -135,6 +138,7 @@ class ProjectController extends Controller
                 'author' => 'required|string|max:50',
                 'title' => 'required|string|max:50',
                 'slug' => 'required|string',
+                'type_id' => 'required',
                 'link' => 'required|string',
                 'date' => 'required|string|max:50',
                 'description' => 'required',
@@ -150,6 +154,8 @@ class ProjectController extends Controller
 
                 'slug.required' => 'The slug is binding!',
                 'slug.string' => 'slug need to be a string!',
+
+                'type_id.required' => 'Type is not valid, select a type!',
 
                 'link.required' => 'The link is binding!',
                 'link.string' => 'link need to be a string!',

@@ -15,6 +15,7 @@ class Project extends Model
         'slug',
         'date',
         'link',
+        'type_id',
         'description'
     ];
 

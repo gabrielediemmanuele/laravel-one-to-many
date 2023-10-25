@@ -76,6 +76,21 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
                 @enderror
             </div>
 
+            {{--* PROVA INSERIMENTO DEL TIPO --}}
+           <label for="type_id" class="form-label">Type</label>
+           <select name="type_id" id="type_id" class="form-select @error('type_id') is-invalid @enderror">
+             <option value="">-- No type --</option>
+             @foreach ($types as $type)
+               <option value="{{ $type->id }}" @if (old('type_id') ?? $project->type_id == $type->id) selected @endif>{{ $type->label }}
+               </option>
+             @endforeach
+           </select>
+           @error('type_id')
+             <div class="invalid-feedback">
+               {{ $message }}
+             </div>
+           @enderror
+
             <div class="col-8">
                 <label for="link" class="form-label">Link</label>
                 <input type="text" id="link" name="link" class="form-control @error('link') is-invalid @enderror" value="{{ old('link') ?? $project->link }}">

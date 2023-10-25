@@ -27,6 +27,7 @@
         <th scope="col">Slug</th>
         <th scope="col">Date</th>
         <th scope="col">Link</th>
+        <th scope="col">Type</th>
         <th scope="col">Description</th>
         <th scope="col">Create At</th>
         <th scope="col">Update At</th>
@@ -44,6 +45,7 @@
         <td>{{$project->slug}}</td>
         <td>{{$project->date}}</td>
         <td><a href="{{$project->link}}">Vai alla repo</a></td>
+        <td>{{$project->type?->label}}</td>
         <td><a href="{{ route('admin.projects.show', $project)}}">Visualizza Descrizione</a></td>
         <td>{{$project->created_at}}</td>
         <td>{{$project->updated_at}}</td>
